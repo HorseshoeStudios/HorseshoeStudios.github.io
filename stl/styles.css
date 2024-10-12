@@ -1,0 +1,263 @@
+/* Genel ayarlar ve renkler */
+:root {
+    --primary-color: #D35400; /* Koyu turuncu */
+    --secondary-color: #6C3483; /* Koyu mor */
+    --background-blur: rgba(255, 255, 255, 0.1); /* Navbar saydamlığı */
+    --hover-transition: 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar ayarları */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    background: var(--background-blur);
+    backdrop-filter: blur(10px); /* Blur efekti */
+    border-radius: 0 0 20px 20px; /* Yuvarlak köşeler */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.2); /* Hover'da daha fazla saydamlık */
+    backdrop-filter: blur(15px);
+}
+
+.navbar .logo h1 {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+.nav-item {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: var(--hover-transition);
+}
+
+.nav-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Hero Bölümü */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #6C3483, #D35400); /* Koyu mor ve turuncu geçişi */
+    color: #fff;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.button {
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: var(--hover-transition);
+    margin: 5px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Fade in animasyonu */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About, Services ve diğer bölümler */
+.content-wrapper {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section, .services-section, .gallery-section, .team-section, .blog-section, .contact-section {
+    padding: 80px 0;
+}
+
+h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Hizmet kartları */
+.about-cards, .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.about-card, .service-item {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: var(--hover-transition);
+}
+
+.about-card:hover, .service-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Galeri ve takım bölümleri */
+.gallery-grid, .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item, .team-member {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: var(--hover-transition);
+}
+
+.gallery-item:hover, .team-member:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Blog bölümünde hover animasyonu */
+.blog-post {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    transition: var(--hover-transition);
+}
+
+.blog-post:hover {
+    transform: translateY(-10px);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* İletişim formu */
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--hover-transition);
+}
+
+.contact-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer Bölümü */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer p {
+    color: #ccc;
+}
+
+.footer a {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.footer a:hover {
+    color: var(--secondary-color);
+}
