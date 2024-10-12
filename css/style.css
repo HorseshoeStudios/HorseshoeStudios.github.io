@@ -1,4 +1,11 @@
-/* Global Styles */
+/* Genel ayarlar ve renkler */
+:root {
+    --primary-color: #D35400; /* Koyu turuncu */
+    --secondary-color: #6C3483; /* Koyu mor */
+    --background-blur: rgba(255, 255, 255, 0.1); /* Navbar saydamlığı */
+    --hover-transition: 0.3s ease-in-out;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,420 +15,237 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 20px;
-    color: #222;
-}
-
-/* Header Section */
+/* Navbar ayarları */
 .navbar {
-    background-color: #333;
-    padding: 20px;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    padding: 15px 30px;
+    background: var(--background-blur);
+    backdrop-filter: blur(10px); /* Blur efekti */
+    border-radius: 0 0 20px 20px; /* Yuvarlak köşeler */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.2); /* Hover'da daha fazla saydamlık */
+    backdrop-filter: blur(15px);
 }
 
 .navbar .logo h1 {
-    color: #fff;
     font-size: 24px;
-    display: inline-block;
+    color: var(--primary-color);
 }
 
 nav ul {
-    list-style-type: none;
     display: flex;
-    justify-content: flex-end;
+    list-style: none;
 }
 
 nav ul li {
     margin-left: 20px;
 }
 
-nav ul li a {
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.nav-item {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: var(--hover-transition);
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: #4CAF50;
+.nav-item:hover {
+    background-color: var(--primary-color);
     color: #fff;
 }
 
-/* Hero Section */
+/* Hero Bölümü */
 .hero-section {
     height: 100vh;
-    background-image: url('hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background: linear-gradient(to bottom, #6C3483, #D35400); /* Koyu mor ve turuncu geçişi */
     color: #fff;
-}
-
-.hero-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
 }
 
 .hero-content h2 {
     font-size: 48px;
     margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
-.hero-content .button {
+.button {
     padding: 15px 30px;
-    border-radius: 5px;
+    border-radius: 50px;
+    text-decoration: none;
     font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: var(--hover-transition);
+    margin: 5px;
 }
 
 .primary-btn {
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: #fff;
-    border: none;
 }
 
 .primary-btn:hover {
-    background-color: #45a049;
+    background-color: var(--secondary-color);
 }
 
 .secondary-btn {
-    background-color: transparent;
+    background-color: var(--secondary-color);
     color: #fff;
-    border: 2px solid #fff;
 }
 
 .secondary-btn:hover {
-    background-color: #fff;
-    color: #4CAF50;
+    background-color: var(--primary-color);
 }
 
-/* About Us Section */
-.about-section {
-    background-color: #fff;
+/* Fade in animasyonu */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About, Services ve diğer bölümler */
+.content-wrapper {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section, .services-section, .gallery-section, .team-section, .blog-section, .contact-section {
     padding: 80px 0;
-    text-align: center;
 }
 
-.about-section h2 {
+h2 {
     font-size: 36px;
-    color: #4CAF50;
+    color: var(--primary-color);
+    text-align: center;
     margin-bottom: 40px;
 }
 
-.about-section p {
+p {
+    color: #333;
     font-size: 18px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    color: #555;
+    line-height: 1.8;
 }
 
-.about-cards {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.about-card {
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: 300px;
-    margin: 20px;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-}
-
-.about-card h3 {
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
-
-/* Services Section */
-.services-section {
-    padding: 80px 0;
-    background-color: #fafafa;
-    text-align: center;
-}
-
-.services-section h2 {
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.service-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.service-item {
-    width: 300px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.service-item h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.service-item p {
-    color: #777;
-    font-size: 16px;
-}
-
-/* Gallery Section */
-.gallery-section {
-    background-color: #fff;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.gallery-section h2 {
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.gallery-grid {
+/* Hizmet kartları */
+.about-cards, .service-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+.about-card, .service-item {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: var(--hover-transition);
 }
 
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
+.about-card:hover, .service-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.gallery-item:hover {
+/* Galeri ve takım bölümleri */
+.gallery-grid, .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item, .team-member {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: var(--hover-transition);
+}
+
+.gallery-item:hover, .team-member:hover {
     transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.gallery-item p {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
-/* Our Team Section */
-.team-section {
-    background-color: #fafafa;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.team-section h2 {
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.team-member {
-    text-align: center;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-10px);
-}
-
-.team-member img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.team-member h3 {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.team-member p {
-    color: #777;
-}
-
-/* Blog Section */
-.blog-section {
-    background-color: #fff;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.blog-section h2 {
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.blog-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
+/* Blog bölümünde hover animasyonu */
 .blog-post {
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
     padding: 20px;
-    width: 300px;
-    margin: 20px;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+    transition: var(--hover-transition);
 }
 
 .blog-post:hover {
     transform: translateY(-10px);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-.blog-post img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-}
-
-.blog-post h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.blog-post p {
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.blog-post .read-more-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.blog-post .read-more-btn:hover {
-    background-color: #45a049;
-}
-
-/* Contact Section */
-.contact-section {
-    background-color: #fafafa;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.contact-section h2 {
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.contact-section p {
-    color: #555;
-    margin-bottom: 40px;
-    font-size: 18px;
-}
-
+/* İletişim formu */
 .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
+.contact-form input, .contact-form textarea {
     padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
     font-size: 16px;
 }
 
 .contact-form button {
     padding: 15px 30px;
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--hover-transition);
 }
 
 .contact-form button:hover {
-    background-color: #45a049;
+    background-color: var(--secondary-color);
 }
 
-/* Footer Section */
+/* Footer Bölümü */
 .footer {
     background-color: #333;
     color: #fff;
     padding: 40px 0;
     text-align: center;
+    border-radius: 20px 20px 0 0;
 }
 
 .footer p {
@@ -429,11 +253,11 @@ nav ul li a.active {
 }
 
 .footer a {
-    color: #4CAF50;
+    color: var(--primary-color);
     font-weight: bold;
     margin-left: 15px;
 }
 
 .footer a:hover {
-    color: #fff;
+    color: var(--secondary-color);
 }
